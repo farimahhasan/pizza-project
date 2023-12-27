@@ -11,12 +11,12 @@ export default {
         "red":"#FF6868",
         "secondary":"#555",
         "primaryBG":"#FCFCFC"
-      }/* ,
+      } ,
       fontFamily:{
-        "primary":['Inter', 'sans-serif']
-      } */
+        "iransans":['IRANSans', 'sans-serif']
+      }
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 
