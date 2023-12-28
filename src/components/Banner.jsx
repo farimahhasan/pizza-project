@@ -2,8 +2,8 @@ import pizza from "../assets/images/pizza-banner.svg"
 
 const Banner = () => {
     return (
-        <div className="section-container bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%">
-            <div className="py-24 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
+        <div className="section-container">
+            <div className="py-16 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
                 <div className="md:w-1/2 space-y-7 px-4 md:text-right text-center">
                     <h2 className="text-2xl md:text-4xl font-bold md:leading-sung leading-sung ">
                     لذتی که توی خوردن <span className="text-orange">پیتزا</span> هست … 

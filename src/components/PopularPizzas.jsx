@@ -26,7 +26,7 @@ const PopularPizzas = () => {
 
 
     return (
-        <div className="section-container my-20">
+        <div className="section-container ">
             <div className="px-4">
                 <h2 className="text-2xl md:text-4xl font-bold md:leading-sung leading-sung">پیتزاهای پرطرفدار</h2>
             </div>
