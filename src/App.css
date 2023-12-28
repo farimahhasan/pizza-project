@@ -1,4 +1,23 @@
 @font-face {
-  font-family: IRANSans;
-  src:url('./assets/fonts/Iranian\ Sans.ttf') format('truetype');
+  font-family: vazir;
+  src:url('./assets/fonts/Vazir.ttf') format('truetype');
   }
+*{
+  font-family: vazir;
+}
+.section-container {
+  @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
+}
+
+  /* .title{
+    @apply text-2xl md: text-4xl font-bold md: leading-sung leading-sung ;
+  } */
+
+  .swiper-button-next , .swiper-button-prev { 
+    color: #FFBE00 !important;
+  }
+
+  .heartStar{
+    border-radius: 0 28px 0 28px;
+  }
+

@@ -1,10 +1,12 @@
-import React from 'react';
+import Banner from '../components/Banner';
+import PopularPizzas from '../components/PopularPizzas';
 
 const Home = () => {
     return (
-        <div>
-            home
-        </div>
+        <>
+            <Banner />
+            <PopularPizzas />
+        </>
     );
 };
 
