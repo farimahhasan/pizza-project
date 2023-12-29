@@ -80,9 +80,9 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end text-end">
                     <Link to="./">
-                        <img src={logo} alt="لوگو پیتزا" className="w-[70px]" />
+                        <img src={logo} alt="لوگو پیتزا" className="md:w-1/6 w-1/4 mr-auto " />
                     </Link>
                 </div>
             </nav>
