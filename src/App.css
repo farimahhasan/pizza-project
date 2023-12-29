@@ -21,3 +21,8 @@
     border-radius: 0 28px 0 28px;
   }
 
+  .activeCategory{
+    color:#FFBE00 ;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+  }

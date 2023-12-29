@@ -44,7 +44,7 @@ const PopularPizzas = () => {
                 >
                     {
                         popularPizza.map((item) => (
-                            <SwiperSlide key={item.id} className="w-1/2">
+                            <SwiperSlide key={item._id} className="w-1/2">
                                 <Card data={item} />
                             </SwiperSlide>
                         ))

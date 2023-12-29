@@ -22,7 +22,7 @@ const Navbar = () => {
    },[])
 
     return (
-        <header className="max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out z-[1000]">
+        <header className="max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out z-[1000] ">
             <nav className={`navbar xl:px-24 ${sticky ? "shadow-md bg-base-100  transition-all duration-300 ease-in-out" : null}`}>
                 <div className="navbar-start">
                     <div className="dropdown ">

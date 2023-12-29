@@ -1,6 +1,6 @@
 [
     {
-        "_id": "642c155b2c4774f05c36eeaa",
+        "_id": "1",
         "name": "فیلتو",
         "recipe": "گوشت فیله گوساله، قارچ، فلفل دلمه، زیتون، پنیر موزارلا، سس ناپولی، خمیر مخصوص ایتالیایی",
         "image": "https://s6.uupload.ir/files/1695255096759472x_vk9z.png",
@@ -8,7 +8,7 @@
         "price": 318000
     },
     {
-        "_id": "642c155b2c4774f05c36eeb9",
+        "_id": "2",
         "name": "استیک",
         "recipe": "استیک ،قارچ، فلفل دلمه، زیتون، پنیر موزارلا، سس ناپولی، خمیر مخصوص ایتالیایی",
         "image": "https://s6.uupload.ir/files/1695255077129822x_37h3.png",
@@ -16,7 +16,7 @@
         "price": 318000
     },
     {
-        "_id": "642c155b2c4774f05c36ee7c",
+        "_id": "3",
         "name": "سبزیجات",
         "recipe": "بادمجان، ذرت،، قارچ، زیتون سبز، زیتون سیاه، گوجه فرنگی، گوجه گیلاسی، فلفل دلمه سبز و رنگی",
         "image": "https://s6.uupload.ir/files/1695289073163042x_l5yw.png",
@@ -24,7 +24,7 @@
         "price": 189000
     },
     {
-        "_id": "642c155b2c4774f05c36ee88",
+        "_id": "4",
         "name": "گوشت و قارچ",
         "recipe": "قارچ، فلفل دلمه سبز، زیتون سیاه، پنیر پیتزا، گوشت چرخی",
         "image": "https://s6.uupload.ir/files/1695289132779812x_ypqj.png",
@@ -32,7 +32,7 @@
         "price": 288000
     },
     {
-        "_id": "642c155b2c4774f05c36ee7a",
+        "_id": "5",
         "name": "استاف کراست",
         "recipe": "ژامبون مرغ، ژامبون گوشت، رست بیف، قارچ، فلفل دلمه سبز و رنگی، زیتون سیاه، میکس پنیر موزارلا و فنلاندی، خمیر استاف کراست",
         "image": "https://s6.uupload.ir/files/1695289102910792x_zf9y.png",
@@ -40,11 +40,132 @@
         "price": 288000
     },
     {
-        "_id": "642c155b2c4774f05c36ee74",
+        "_id": "6",
         "name": "استاف کراست اسپشیال",
         "recipe": "ژامبون گوشت، پپرونی، استیک گوشت، گوشت فیله، قارچ، فلفل دلمه سبز و رنگی، پیاز، زیتون سیاه، میکس پنیر موزارلا و فنلاندی، خمیر استاف کراست",
         "image": "https://s6.uupload.ir/files/1695289111313662x_w66m.png",
         "category": "popular",
         "price": 338000
+    },
+    {
+        "_id": "7",
+        "name": "بیف بیکن",
+        "recipe": "خمیر روگن، بیکن، رست بیف، پیاز، قارچ، میکس پنیر موزارلا و فنلاندی، زیتون سیاه، دلمه سبز",
+        "image": "https://s6.uupload.ir/files/1695289298412252x_r64b.png",
+        "category": "rogen",
+        "price": 274000
+    },
+    {
+        "_id": "8",
+        "name": "بوقلمون",
+        "recipe": "خمیر روگن، استیک بوقلمون، مرغ سیر و کره، میکس پنیر موزارلا و فنلاندی، قارچ، زیتون سیاه، دلمه سبز، دلمه رنگی",
+        "image": "https://s6.uupload.ir/files/1695289309662872x_on15.png",
+        "category": "rogen",
+        "price": 254000
+    },
+    {
+        "_id": "9",
+        "name": "سیر و استیک",
+        "recipe":"خمیر روگن، استیک گوشت، سس سیر، میکس پنیر موزارلا و فنلاندی، قارچ،زیتون سیاه، دلمه سبز، دلمه رنگی",
+        "image": "https://s6.uupload.ir/files/1695289318336672x_r5ka.png",
+        "category": "rogen",
+        "price": 254000
+    },
+    {
+        "_id": "10",
+        "name": "سوجوک",
+        "recipe": "خمیر روگن، سوجوک، میکس پنیر موزارلا و فنلاندی، قارچ، زیتون سبز",
+        "image": "https://s6.uupload.ir/files/1695289329197132x_sso.png",
+        "category": "rogen",
+        "price": 256000
+    },
+    {
+        "_id": "11",
+        "name": "پپرونی",
+        "recipe": "پپرونی، هالوپینو، قارچ، فلفل دلمه، زیتون، اورگانو، پنیر موزارلا، سس ناپولی، خمیر مخصوص ایتالیایی",
+        "image": "https://s6.uupload.ir/files/1695255154656222x_x4h.png",
+        "category": "italian",
+        "price": 284000
+    },
+    {
+        "_id": "12",
+        "name": "وجترینو",
+        "recipe": "بادمجان، ذرت، قارچ،زیتون سبز، زیتون سیاه، گوجه فرنگی، گوجه گیلاسی، فلفل دلمه، دلمه رنگی",
+        "image": "https://s6.uupload.ir/files/1695255210311692x_46lt.png",
+        "category": "italian",
+        "price": 214000
+    },
+    {
+        "_id": "13",
+        "name": "فرنچ فرایز",
+        "recipe": "سیب زمینی خلالی سرخ شده",
+        "image": "https://s6.uupload.ir/files/1655846439192302x_yr67.png",
+        "category": "appetizer",
+        "price": 79000
+    },
+    {
+        "_id": "14",
+        "name": "وایت وجز",
+        "recipe": "سیب زمینی وجز با سس قارچ",
+        "image": "https://s6.uupload.ir/files/1655846449611232x_gvd5.png",
+        "category": "appetizer",
+        "price": 98000
+    },
+    {
+        "_id": "15",
+        "name":  "سالاد وجی",
+        "recipe": "کاهو پیچ، جوانه گندم، پنیر فتا، گوجه خشک، زیتون سیاه، زیتون سبز، ذرت، کروتن، پنیر پارمسان ،سس انار",
+        "image": "https://s6.uupload.ir/files/1686225485746772x_8hz.png",
+        "category": "appetizer",
+        "price": 142000
+    },
+    {
+        "_id": "16",
+        "name":  "پپسی",
+        "recipe": "330cc",
+        "image": "https://s6.uupload.ir/files/1655846545371182x_7pu1.png",
+        "category": "drinks",
+        "price": 13000
+    },
+    {
+        "_id": "17",
+        "name":  "مرندا",
+        "recipe": "330cc",
+        "image": "https://s6.uupload.ir/files/1655846551411392x_xqy1.png",
+        "category": "drinks",
+        "price": 19000
+    },
+    {
+        "_id": "18",
+        "name":  "سون آپ",
+        "recipe": "330cc",
+        "image": "https://s6.uupload.ir/files/1655846557572742x_7o22.png",
+        "category": "drinks",
+        "price": 19000
+    },
+    {
+        "_id": "19",
+        "name":  "هی جو کلاسیک",
+        "recipe": "330cc",
+        "image": "https://s6.uupload.ir/files/1670507772605922x_xzkf.jpg",
+        "category": "drinks",
+        "price": 24000
+    },
+    {
+        "_id": "20",
+        "name":  "هی جو سیب",
+        "recipe": "330cc",
+        "image": "https://s6.uupload.ir/files/1677589934319262x_ti7.jpg",
+        "category": "drinks",
+        "price": 24000
+    },
+    {
+        "_id": "21",
+        "name":  "دوغ آبعلی",
+        "recipe": "330cc",
+        "image": "https://s6.uupload.ir/files/1685548378651172x_4c3l.jpeg",
+        "category": "drinks",
+        "price": 19000
     }
+    
 ]
