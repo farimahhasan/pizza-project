@@ -1,9 +1,9 @@
 @font-face {
-  font-family: vazir;
-  src:url('./assets/fonts/Vazir.ttf') format('truetype');
+  font-family: shabnam;
+  src:url('./assets/fonts/Shabnam.ttf') format('truetype');
   }
 *{
-  font-family: vazir;
+  font-family: shabnam;
 }
 .section-container {
   @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
