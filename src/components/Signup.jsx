@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 import ModalLogin from "./ModalLogin";
-import { useAuth } from "../contexts/AuthProvider";
+import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -25,7 +25,6 @@ const Signup = () => {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                alert("register")
                 navigate(from, { replace: true })
                 document.getElementById('my_modal_3').close()
             })

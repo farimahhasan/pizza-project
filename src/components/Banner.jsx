@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import pizza from "../assets/images/pizza-banner.svg"
 
 const Banner = () => {
@@ -11,9 +12,9 @@ const Banner = () => {
                     <p className="text-xl text-[#4A4A4A]">
                     اولین تکه پیتزا ذهن شما را منفجر می کند. دومی شما را به بعد دیگری منتقل می کند.
                     </p>
-                    <button className="btn bg-orange px-8 py-3 font-semibold text-white rounded-full">
+                    <Link to="/menu" className="btn bg-orange px-8 py-3 font-semibold text-white rounded-full">
                         همین الان سفارش بده
-                    </button>
+                    </Link>
                 </div>
                 <div className="md:w-1/2">
                     <img src={pizza} alt="پیتزا" className="w-full"/>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../../components/Card"
+import Loading from "../../components/Loading"
+import Swal from 'sweetalert2'
 
 const Menu = () => {
 
@@ -10,16 +12,24 @@ const Menu = () => {
     const [sort, setSort] = useState("default")
     const [currentPage,setCurrentPage]=useState(1)
     const [itemsPerPage]=useState(3)
+    const [err,setErr]=useState(false)
 
     useEffect(() => {
 
         const getMenu = async () => {
             try {
-                const response = await axios.get("/menu.json")
+                const response = await axios.get("http://localhost:6001/menu")
                 setMenu(response.data)
                 setFilteredItems(response.data)
+                setErr(false)
             } catch (error) {
-                throw Error(error)
+                Swal.fire({
+                    icon: "error",
+                    title: "از vpn استفاده کنید",
+                    confirmButtonText: "باشه",
+                    confirmButtonColor: "#FFBE00",
+                });
+               error && setErr(true)
             }
         }
         getMenu()
@@ -84,11 +94,11 @@ const Menu = () => {
                     </select>
                 </div>
             </div>
-
+             {err && <Loading/> }
             <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
                 {
                     currentItems.map((item) => (
-                        <Card key={item._id} data={item} />
+                        <Card key={item.name} data={item} />
                     ))
                 }
             </div>

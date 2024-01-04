@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { useAuth } from "../../contexts/AuthProvider";
+import { useAuth } from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {

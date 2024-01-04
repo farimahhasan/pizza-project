@@ -1,5 +1,5 @@
 import { IoPersonCircle } from "react-icons/io5";
-import { useAuth } from "../contexts/AuthProvider";
+import { useAuth } from "../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Profile = ({ user }) => {

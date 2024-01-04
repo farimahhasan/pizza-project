@@ -2,8 +2,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form"
-import { useAuth } from "../contexts/AuthProvider";
+import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ModalLogin = ({ signupClick }) => {
 
@@ -26,8 +27,7 @@ const ModalLogin = ({ signupClick }) => {
         login(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user)
-                alert("login")
+                localStorage.setItem("token",user.accessToken)
                 navigate(from,{replace:true})
                 document.getElementById('my_modal_3').close()
             })
