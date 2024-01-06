@@ -3,7 +3,6 @@ import { useAuth } from "../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Profile = ({ user }) => {
-
   const { logOut } = useAuth()
   const location = useLocation();
   const navigate = useNavigate();
@@ -38,9 +37,10 @@ const Profile = ({ user }) => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <h2 className="text-orange p-3 text-lg">{user?.displayName}</h2>
           {/* Sidebar content here */}
           <li><a href="/update-profile">حساب کاربری</a></li>
-          <li><a>سفارش ها</a></li>
+          <li><Link to="/order">سفارش ها</Link></li>
           <li>
             <a href="/" onClick={logoutHandler}>خروج</a>
           </li>

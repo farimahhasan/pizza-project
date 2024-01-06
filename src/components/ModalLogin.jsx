@@ -14,12 +14,12 @@ const ModalLogin = ({ signupClick }) => {
         formState: { errors },
     } = useForm()
 
-    const {user, signUpWithGmail, login } = useAuth()
+    const { user, signUpWithGmail, login } = useAuth()
     const [error, setError] = useState("")
 
-    const location=useLocation();
-    const navigate=useNavigate();
-    const from=location.state?.from?.pathname || "/"
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/"
 
     const onSubmit = (data) => {
         const email = data.email
@@ -27,9 +27,17 @@ const ModalLogin = ({ signupClick }) => {
         login(email, password)
             .then((result) => {
                 const user = result.user;
-                localStorage.setItem("token",user.accessToken)
-                navigate(from,{replace:true})
                 document.getElementById('my_modal_3').close()
+
+                const userInfo = {
+                    name: data.name,
+                    email: data.email
+                }
+                axios.post('http://localhost:6001/users', userInfo)
+                    .then((res) => {
+                        navigate(from, { replace: true })
+                    })
+
             })
             .catch((err) => {
                 const errorMesage = err.message;
@@ -44,8 +52,17 @@ const ModalLogin = ({ signupClick }) => {
         signUpWithGmail()
             .then((result) => {
                 const user = result.user;
-                alert("login")
-                navigate(from,{replace:true})
+
+                const userInfo = {
+                    name: result?.user?.displayName,
+                    email: result?.user?.email
+                }
+                axios.post('http://localhost:6001/users', userInfo)
+                    .then((res) => {
+                        navigate("/")
+                        //  document.getElementById('my_modal_3').close()
+
+                    })
             })
             .catch((err) => {
                 console.log(err)
@@ -71,7 +88,7 @@ const ModalLogin = ({ signupClick }) => {
                         </label>
                         <input  {...register("password")} type="password" placeholder="رمز عبور" className="input input-bordered" />
                     </div>
-                     
+
                     {error && <p className="text-red text-l my-4">{error}</p>}
 
                     <div className="form-control mt-6">

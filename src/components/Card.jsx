@@ -25,12 +25,10 @@ const Card = ({ data }) => {
     }
 
     const addToCartHandler = (data) => {
-        console.log(data)
 
         if (user && user?.email) {
             const cartItem = { menuItemId: _id, quantity: 1, name: data.name, price: data.price, image: data.image, email: user.email }
             const token = localStorage.getItem('access-token')
-            console.log(cartItem)
             const postCart = async () => {
                 try {
                     const response = await axios.post('http://localhost:6001/carts', cartItem, {
@@ -39,7 +37,6 @@ const Card = ({ data }) => {
                         }
                     })
                     refetch()
-                    console.log(response.data)
                     if (response.data._id) {
                         Swal.fire({
                             position: "center",

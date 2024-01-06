@@ -89,6 +89,8 @@ const CartPage = () => {
   const orderTotal = calculaterTotalPrice
 
 
+
+
   return (
     <div className="section-container py-8">
       {
@@ -159,7 +161,7 @@ const CartPage = () => {
                 <h3 className="text-xl">جزئیات سفارش</h3>
                 <p>تعداد همه محصولات : {data?.data?.length}</p>
                 <p>قیمت کل : {orderTotal?.toLocaleString()} تومان</p>
-                <button className="btn bg-orange text-white">تایید و ادامه</button>
+                {/* <button className="btn bg-orange text-white">پرداخت</button> */}
               </div>
             </div>
           </>
