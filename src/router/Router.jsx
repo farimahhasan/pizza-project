@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/menu",
-                element: <PrivateRouter><Menu /></PrivateRouter>
+                element:<Menu />
             },
             {
                 path: "/update-profile",
@@ -41,16 +41,15 @@ const router = createBrowserRouter([
                 element:<PrivateRouter> <OrderPage /> </PrivateRouter>
             },
             {
+                path: "/signup",
+                element: <Signup />
+            },        
+            {
                 path:"*",
                 element:<PageNotFound />
             }
         ]
     },
-    {
-        path: "/signup",
-        element: <Signup />
-    },
-
     {
         path: "dashboard",
         element: <PrivateRouter><DashboardLayout /></PrivateRouter>,

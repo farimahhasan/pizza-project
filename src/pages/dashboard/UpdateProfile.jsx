@@ -50,20 +50,20 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div className="flex items-center h-screen justify-center">
-            <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+        <div className="flex items-center h-screen justify-center dark:bg-gray-800 dark:text-white">
+            <div className="card shrink-0 w-full max-w-sm shadow-l bg-base-100 dark:bg-gray-900 dark:text-white">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">نام و نام خانوادگی</span>
+                            <span className="dark:text-white">نام و نام خانوادگی</span>
                         </label>
-                        <input  {...register("name")} type="text" placeholder="نام و نام خانوادگی" className="input input-bordered" />
+                        <input  {...register("name")} type="text" placeholder="نام و نام خانوادگی" className="input input-bordered dark:bg-gray-800 dark:text-white" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">آپلود عکس </span>
+                            <span className="label-text dark:text-white">آپلود عکس </span>
                         </label>
-                        <input  {...register("photoURL", { required: "عکس نباید خالی باشد" })} placeholder="آپلود عکس" type="file" className="file-input w-full max-w-xs" />
+                        <input  {...register("photoURL", { required: "عکس نباید خالی باشد" })} placeholder="آپلود عکس" type="file" className="file-input w-full max-w-xs dark:bg-gray-800 dark:text-white" />
                     </div>
                     <ErrorMessage
                         errors={errors}
@@ -73,11 +73,11 @@ const UpdateProfile = () => {
                         </p>}
                     />
 
-                    <div className="form-control mt-6">
+                    <div className="form-control mt-6 text-center">
                         {
                             loadingBtn ? <LoadingBtn />
                                 :
-                                <button className="btn bg-orange text-white">به روز رسانی</button>
+                                <button className="btn bg-orange text-white dark:text-gray-800">به روز رسانی</button>
 
                         }
                     </div>

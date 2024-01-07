@@ -92,7 +92,7 @@ const CartPage = () => {
 
 
   return (
-    <div className="section-container py-8">
+    <div className="section-container py-8 dark:bg-gray-800 dark:text-white">
       {
         data?.data?.length ?
 
@@ -100,7 +100,7 @@ const CartPage = () => {
             <div className="overflow-x-auto py-20">
               <table className="table ">
                 {/* head */}
-                <thead className="bg-orange text-white text-sm">
+                <thead className="bg-orange text-white text-sm dark:text-gray-900">
                   <tr>
                     <th>#</th>
                     <th>عکس</th>

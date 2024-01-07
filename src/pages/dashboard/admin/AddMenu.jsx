@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
+import LoadingBtn from "../../../components/LoadingBtn";
 
 const AddMenu = () => {
 
@@ -36,9 +37,8 @@ const AddMenu = () => {
                 recipe: data.recipe,
                 image:res.data.data.display_url
             }
-            console.log(menuItem)
             axios.post('http://localhost:6001/menu', menuItem).then((data) => {
-                setLoadingBtn(true)
+                setLoadingBtn(false)
                 reset()
                 Swal.fire({
                     position: "center",
@@ -99,7 +99,7 @@ const AddMenu = () => {
                         <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
                     </div>
                     {
-                        loadingBtn ? <loadingBtn /> :
+                        loadingBtn ? <LoadingBtn /> :
                         <button className='btn text-white bg-orange px-6 my-6'>اضافه کردن</button>
                     }
                 </form>

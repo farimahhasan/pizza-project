@@ -7,6 +7,8 @@ import axios from "axios";
 import Swal from 'sweetalert2'
 import useCart from "../hooks/useCart";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const Card = ({ data }) => {
 
     const { _id, name, price, recipe, image } = data
@@ -17,8 +19,8 @@ const Card = ({ data }) => {
     const navigate = useNavigate()
 
     const { user } = useAuth()
-    
-    const {refetch}=useCart()
+
+    const { refetch } = useCart()
 
     const clickHandler = () => {
         setIsHeartFillted(!isHeartFillted)
@@ -72,7 +74,7 @@ const Card = ({ data }) => {
                 cancelButtonColor: "#d33",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login', { state: { from: location } })
+                    navigate('/signup', { state: { from: location } })
                 }
             });
         }
@@ -81,8 +83,8 @@ const Card = ({ data }) => {
 
 
     return (
-        <div className="card card-compact md:w-full w-2/3 my-4  mx-auto shadow-lg relative">
-            <div className={`rating gap-1 absolute right-2 top-2 p-4 heartStar bg-orange
+        <div className="card card-compact md:w-full w-2/3 my-4  mx-auto shadow-lg relative dark:bg-gray-900 ">
+            <div className={`rating gap-1 z-[2] absolute right-2 top-2 p-4 heartStar bg-orange
              ${isHeartFillted ? "text-rose-500" : "text-white"}
             `}
                 onClick={clickHandler}
@@ -90,16 +92,19 @@ const Card = ({ data }) => {
                 <FaHeart className="h-5 w-5 cursor-pointer" />
             </div>
             <figure>
-                    <img className="hover:scale-105 transition-all duration-200 md:h-72" src={image} alt={name} /> 
+                <LazyLoadImage src={image}
+                    alt={name}
+                    className="hover:scale-105 z-[1] transition-all duration-200 md:h-72"
+                />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">
-                        {name}
+                    {name}
                 </h2>
                 <p>{recipe}</p>
                 <div className="card-actions justify-between items-center mt-2">
                     <h5 className="font-semibold">{price.toLocaleString()} تومان</h5>
-                    <button className="btn bg-orange text-white" onClick={() => addToCartHandler(data)}>افزودن به سبد خرید</button>
+                    <button className="btn bg-orange text-white dark:text-gray-800" onClick={() => addToCartHandler(data)}>افزودن به سبد خرید</button>
                 </div>
             </div>
         </div>

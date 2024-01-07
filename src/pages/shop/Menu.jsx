@@ -72,7 +72,7 @@ const Menu = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="section-container py-24">
+        <div className="section-container py-24 dark:bg-gray-800 dark:text-white">
             <div className="flex justify-between md:flex-row flex-col items-center">
                 <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4 flex-wrap py-8">
                     <button onClick={() => filterItems("all")} className={selectedCategory === "all" ? "activeCategory" : null}>همه</button>
@@ -82,8 +82,8 @@ const Menu = () => {
                     <button onClick={() => filterItems("drinks")} className={selectedCategory === "drinks" ? "activeCategory" : null}>نوشیدنی</button>
                 </div>
 
-                <div className="md:pb-0 pb-8 md:w-1/4 w-1/2 text-end">
-                    <select onChange={(e) => sortHandler(e.target.value)} value={sort} className="select select-bordered w-full max-w-xs">
+                <div className="md:pb-0 pb-8 md:w-1/4 w-1/2 text-end ">
+                    <select onChange={(e) => sortHandler(e.target.value)} value={sort} className="select select-bordered w-full max-w-xs dark:bg-gray-900 dark:text-white">
                         <option value="default">پیشفرض</option>
                         <option value="A-Z">براساس حروف الفبا</option>
                         <option value="Z-A"> برعکس حروف الفبا</option>
@@ -100,7 +100,7 @@ const Menu = () => {
                     ))
                 }
             </div>
-            <div className="flex justify-center flex-wrap my-8" dir="ltr">
+            <div className="flex justify-center flex-wrap my-8 dark:text-gray-900 " dir="ltr">
                 {Array.from({ length: Math.ceil(filteredItems.length / itemsPerPage) }).map((_, index) => (
                     <button
                         key={index + 1}

@@ -24,7 +24,7 @@ const Profile = ({ user }) => {
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content mx-auto ">
         {/* Page content here */}
-        <label htmlFor="my-drawer-4" className=" btn btn-circle btn-ghost">
+        <label htmlFor="my-drawer-4" className=" btn btn-circle btn-ghost dark:hover:bg-white dark:hover:text-gray-700">
           <div>
             {
               user.photoURL ?
@@ -38,22 +38,22 @@ const Profile = ({ user }) => {
           </div>
         </label>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side ">
         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className="menu dark:bg-gray-800 dark:text-white p-4 w-80 min-h-full bg-base-200 text-base-content">
           <h2 className="text-orange p-3 text-lg">{user?.displayName}</h2>
           {/* Sidebar content here */}
           {
             isAdmin ?
               <>
-                <li><a href="/dashboard">پنل ادمین</a></li>
+                <li className="dark:hover:text-gray-300"><a href="/dashboard">پنل ادمین</a></li>
               </>
               :
               <>
-                <li><a href="/update-profile">ویرایش پروفایل</a></li>
+                <li className="dark:hover:text-gray-300"><a href="/update-profile">ویرایش پروفایل</a></li>
               </>
           }
-          <li>
+          <li className="dark:hover:text-gray-300">
             <a href="/" onClick={logoutHandler}>خروج</a>
           </li>
         </ul>

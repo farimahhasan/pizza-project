@@ -6,7 +6,7 @@ import testimonials3 from "../assets/images/testimonial3.png"
 
 const Testimonials = () => {
     return (
-        <div className="section-container my-[100px]">
+        <div className="section-container py-[100px] dark:bg-gray-800 dark:text-white">
             <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
                 <div className="md:w-1/2 w-full md:mt-0 mt-10">
                     <img src={pizzaSharing} alt="مشتریان" className="w-full" />
@@ -15,7 +15,7 @@ const Testimonials = () => {
                     <h2 className="text-2xl md:text-4xl font-bold md:leading-sung leading-sung ">
                         مشتریان در مورد ما چه میگویند ؟
                     </h2>
-                    <blockquote className="my-5 text-secondary leading-[30px]">
+                    <blockquote className="my-5 text-secondary  dark:text-gray-500 leading-[30px]">
                         ”
                         من عاشق غذام و همه میدونن که با خوردن غذا چه قدر خوشحال میشم . حالا فک کن اون غذا پیتزاهای شما باشه ...
                         “
@@ -38,7 +38,7 @@ const Testimonials = () => {
                                 </div>
                             </div>
                             <div className="avatar placeholder">
-                                <div className="w-12 bg-neutral text-neutral-content">
+                                <div className="w-12 bg-neutral text-neutral-content dark:bg-white dark:text-gray-800">
                                     <span>+99</span>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@ const Testimonials = () => {
                                 
                                 <span className="font-medium">4.9</span>
                                 <FaStar className="text-yellow-400" />
-                                 <span className="text-[#807E7E]">(18.6k بازدید)</span>
+                                 <span className="text-[#807E7E] dark:text-white">(18.6k بازدید)</span>
                             </div>
                         </div>
                     </div>

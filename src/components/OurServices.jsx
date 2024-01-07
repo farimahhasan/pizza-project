@@ -13,13 +13,13 @@ const serivicesList =[
 
 const OurServices = () => {
     return (
-        <div className="section-container my-20">
+        <div className="section-container py-20 dark:bg-gray-800 dark:text-white">
             <div className="flex flex-col md:flex-row items-center justify-between ">
                 <div className="md:w-1/2 w-full">
                     <h2 className="text-2xl md:text-4xl font-bold md:leading-sung leading-sung ">
                         سفر و خدمات آشپزی ما
                     </h2>
-                    <p className="my-5 text-secondary text-xl leading-[30px]">
+                    <p className="my-5 text-secondary  dark:text-gray-500 text-xl leading-[30px]">
                         طعمی که به یاد خواهید آورد.
                         هر روز، یک تجربه مزه جدید.<br/>
                         طعم تازه گی،
@@ -32,14 +32,14 @@ const OurServices = () => {
                            <div key={item.id} className="shadow-md rounded-sm py-5 px-4 
                            text-center space-y-2
                             cursor-pointer text-orange hover:scale-105 transition-all 
-                            duration-200 "> 
+                            duration-200  dark:bg-gray-900 "> 
                               <div className="">
                                 {item.icon}
                               </div>
                               <h5 className="pt-3 font-semibold ">
                                 {item.title}
                               </h5>
-                              <p className="text-secondary ">
+                              <p className="text-secondary  dark:text-white">
                                 {item.des}
                               </p>
                            </div>

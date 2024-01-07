@@ -3,7 +3,7 @@ import logo from "../assets/images/logo.png";
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 section-container text-base-content">
+        <footer className="footer p-10 section-container text-base- dark:bg-gray-800 dark:text-white">
         <nav>
           <a className="link link-hover">سوالات متداول</a>
           <Link to="/menu" className="link link-hover">منو</Link>
