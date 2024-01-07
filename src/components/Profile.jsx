@@ -1,8 +1,10 @@
 import { IoPersonCircle } from "react-icons/io5";
 import { useAuth } from "../hooks/useAuth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 const Profile = ({ user }) => {
+
   const { logOut } = useAuth()
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,6 +17,8 @@ const Profile = ({ user }) => {
       }).catch((err) => console.log(err))
   }
 
+  const { data: isAdmin } = useAdmin()
+
   return (
     <div className=" drawer-start z-50">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -26,7 +30,7 @@ const Profile = ({ user }) => {
               user.photoURL ?
                 <div className="avatar">
                   <div className="w-8 rounded-full">
-                    <img src={user.photoURL} alt={user.name}/>
+                    <img src={user.photoURL} alt={user.name} />
                   </div>
                 </div>
                 : <IoPersonCircle size={24} />
@@ -37,10 +41,18 @@ const Profile = ({ user }) => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-        <h2 className="text-orange p-3 text-lg">{user?.displayName}</h2>
+          <h2 className="text-orange p-3 text-lg">{user?.displayName}</h2>
           {/* Sidebar content here */}
-          <li><a href="/update-profile">حساب کاربری</a></li>
-          <li><Link to="/order">سفارش ها</Link></li>
+          {
+            isAdmin ?
+              <>
+                <li><a href="/dashboard">پنل ادمین</a></li>
+              </>
+              :
+              <>
+                <li><a href="/update-profile">ویرایش پروفایل</a></li>
+              </>
+          }
           <li>
             <a href="/" onClick={logoutHandler}>خروج</a>
           </li>

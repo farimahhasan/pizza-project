@@ -13,6 +13,7 @@ import AddMenu from "../pages/dashboard/admin/AddMenu";
 import ManageMenuItem from "../pages/dashboard/admin/ManageMenuItem";
 import EditMenuItem from "../pages/dashboard/admin/EditMenuItem";
 import OrderPage from "../pages/shop/orderPage";
+import PageNotFound from "../components/PageNotFound";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path:"/order",
                 element:<PrivateRouter> <OrderPage /> </PrivateRouter>
+            },
+            {
+                path:"*",
+                element:<PageNotFound />
             }
         ]
     },
@@ -45,6 +50,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup />
     },
+
     {
         path: "dashboard",
         element: <PrivateRouter><DashboardLayout /></PrivateRouter>,
@@ -70,7 +76,8 @@ const router = createBrowserRouter([
                 element: <EditMenuItem />,
             }
         ]
-    }
+    },
+  
 
 ])
 

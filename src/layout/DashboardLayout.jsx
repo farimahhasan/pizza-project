@@ -2,10 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { MdDashboard, MdDashboardCustomize } from "react-icons/md";
 import {
   FaEdit,
-  FaLocationArrow,
   FaPlusCircle,
-  FaQuestionCircle,
-  FaRegUser,
   FaShoppingBag,
   FaUser,
 } from "react-icons/fa";
@@ -23,17 +20,13 @@ const sharedLinks = (
     <li>
         <Link to="/menu"><FaCartShopping/> منو</Link>
     </li>
-    <li>
-        <Link to="/menu"><FaLocationArrow/> Orders Tracking</Link>
-    </li>
-    <li>
-        <Link to="/menu"><FaQuestionCircle/> Customer Support</Link>
-    </li>
   </>
 );
 
 const DashboardLayout = () => {
+
   const {data:isAdmin} = useAdmin()
+
   return (
     <div>
     {
@@ -63,36 +56,36 @@ const DashboardLayout = () => {
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           <li>
-            <Link to="/dashboard" className="flex justify-start mb-3">
+            <a href="/dashboard" className="flex justify-start mb-3">
               <span className="badge badge-primary">ادمین</span>
-            </Link>
+            </a>
           </li>
           <hr />
           <li className="mt-3">
-            <Link to="/dashboard">
+            <a href="/dashboard">
               <MdDashboard /> پنل ادمین
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/dashboard">
-              <FaShoppingBag /> Manage Bookings
-            </Link>
+            <a href="/dashboard">
+              <FaShoppingBag /> سفارش مشتریان
+            </a>
           </li>
           <li>
-            <Link to="/dashboard/add-menu">
+            <a href="/dashboard/add-menu">
               <FaPlusCircle />
               اضافه کردن منو
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/dashboard/manage-menu-items">
+            <a href="/dashboard/manage-menu-items">
               <FaEdit /> مدیریت منو شامل ویرایش و حذف
-            </Link>
+            </a>
           </li>
           <li className="mb-3">
-            <Link to="/dashboard/users">
+            <a href="/dashboard/users">
               <FaUser />همه کاربر ها
-            </Link>
+            </a>
           </li>
 
           <hr />

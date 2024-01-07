@@ -1,18 +1,23 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
-import Swal from "sweetalert2";
+import LoadingBtn from "./LoadingBtn";
+import { ErrorMessage } from "@hookform/error-message";
 
 const ModalLogin = ({ signupClick }) => {
+
+    const [loadingBtn, setLoadingBtn] = useState(false)
+
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm()
+    } = useForm(
+        {criteriaMode : "all"}
+    )
 
     const { user, signUpWithGmail, login } = useAuth()
     const [error, setError] = useState("")
@@ -22,6 +27,8 @@ const ModalLogin = ({ signupClick }) => {
     const from = location.state?.from?.pathname || "/"
 
     const onSubmit = (data) => {
+        setLoadingBtn(true)
+
         const email = data.email
         const password = data.password
         login(email, password)
@@ -35,6 +42,7 @@ const ModalLogin = ({ signupClick }) => {
                 }
                 axios.post('http://localhost:6001/users', userInfo)
                     .then((res) => {
+                        setLoadingBtn(false)
                         navigate(from, { replace: true })
                     })
 
@@ -42,6 +50,8 @@ const ModalLogin = ({ signupClick }) => {
             .catch((err) => {
                 const errorMesage = err.message;
                 setError("ایمیل یا رمز عبور به درستی وارد نشده است")
+                setLoadingBtn(false)
+
             })
 
     }
@@ -76,23 +86,51 @@ const ModalLogin = ({ signupClick }) => {
                     <button htmlFor="my_modal_3"
                         onClick={() => document.getElementById('my_modal_3').close()}
                         className="btn btn-sm btn-circle btn-ghost absolute right-5 top-5">✕</button>
+                    {error && <p className="text-red text-l my-4">{error}</p>}
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">ایمیل</span>
                         </label>
-                        <input  {...register("email")} type="email" placeholder="ایمیل" className="input input-bordered" />
+                        <input  {...register("email", { required: "ایمیل نباید خالی باشد" })} type="email" placeholder="ایمیل" className="input input-bordered" />
                     </div>
+
+                    <ErrorMessage
+                        errors={errors}
+                        name="email"
+                        render={({ message }) => <p className="my-4 text-red ">
+                            {message}
+                        </p>}
+                    />
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">رمز عبور</span>
                         </label>
-                        <input  {...register("password")} type="password" placeholder="رمز عبور" className="input input-bordered" />
+                        <input  {...register("password", {
+                            required: "رمز عبور نباید خالی باشد", minLength: {
+                                value: 8,
+                                message: "رمز عبور باید حتما بیشتر از 7 کاراکتر باشد",
+                            },
+                        })} type="password" placeholder="رمز عبور" className="input input-bordered" />
                     </div>
 
-                    {error && <p className="text-red text-l my-4">{error}</p>}
+                    <ErrorMessage
+                        errors={errors}
+                        name="password"
+                        render={({ messages }) =>
+                            messages &&
+                            Object.entries(messages).map(([type, message]) => (
+                                <p className="my-4 text-red " key={type}>{message}</p>
+                            ))
+                        }
+                    />
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-orange text-white">ورود</button>
+                        {
+                            loadingBtn ? <LoadingBtn />
+                                : <button className="btn bg-orange text-white">ورود</button>
+                        }
                     </div>
                 </form>
                 <p className="py-4 text-center">
@@ -102,9 +140,6 @@ const ModalLogin = ({ signupClick }) => {
                 <div className="flex justify-center py-4">
                     <button onClick={googleLoginHandler} className="btn mx-2 btn-circle hover:bg-orange hover:text-white">
                         <FaGoogle size={18} />
-                    </button>
-                    <button className="btn mx-2 btn-circle hover:bg-orange hover:text-white">
-                        <FaGithub size={20} />
                     </button>
                 </div>
             </div>

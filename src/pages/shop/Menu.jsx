@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../../components/Card"
 import Loading from "../../components/Loading"
-import Swal from 'sweetalert2'
 
 const Menu = () => {
 
@@ -10,9 +9,9 @@ const Menu = () => {
     const [filteredItems, setFilteredItems] = useState([])
     const [selectedCategory, setSelectedCategory] = useState("all")
     const [sort, setSort] = useState("default")
-    const [currentPage,setCurrentPage]=useState(1)
-    const [itemsPerPage]=useState(3)
-    const [err,setErr]=useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(3)
+    const [err, setErr] = useState(false)
 
     useEffect(() => {
 
@@ -23,16 +22,14 @@ const Menu = () => {
                 setFilteredItems(response.data)
                 setErr(false)
             } catch (error) {
-                Swal.fire({
-                    icon: "error",
-                    title: "از vpn استفاده کنید",
-                    confirmButtonText: "باشه",
-                    confirmButtonColor: "#FFBE00",
-                });
-               error && setErr(true)
+
+                error && setErr(true)
             }
         }
         getMenu()
+
+        window.scrollTo(0,0);
+
 
     }, [])
 
@@ -55,7 +52,7 @@ const Menu = () => {
                 sortedItems.sort((a, b) => b.name.localeCompare(a.name))
                 break;
             case "low-to-high":
-                sortedItems.sort((a, b) => a.price - b.price )
+                sortedItems.sort((a, b) => a.price - b.price)
                 break;
             case "high-to-low":
                 sortedItems.sort((a, b) => b.price - a.price)
@@ -65,13 +62,14 @@ const Menu = () => {
         }
 
         setFilteredItems(sortedItems)
+        setCurrentPage(1);
     }
 
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    const indexOfLastItem=currentPage + itemsPerPage;
-    const indexOfFirstItem=indexOfLastItem - itemsPerPage;
-    const currentItems=filteredItems.slice(indexOfFirstItem,indexOfLastItem)
-    const paginate=(pageNumber)=>setCurrentPage(pageNumber);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div className="section-container py-24">
@@ -85,7 +83,7 @@ const Menu = () => {
                 </div>
 
                 <div className="md:pb-0 pb-8 md:w-1/4 w-1/2 text-end">
-                    <select onChange={(e)=>sortHandler(e.target.value)} value={sort} className="select select-bordered w-full max-w-xs">
+                    <select onChange={(e) => sortHandler(e.target.value)} value={sort} className="select select-bordered w-full max-w-xs">
                         <option value="default">پیشفرض</option>
                         <option value="A-Z">براساس حروف الفبا</option>
                         <option value="Z-A"> برعکس حروف الفبا</option>
@@ -94,7 +92,7 @@ const Menu = () => {
                     </select>
                 </div>
             </div>
-             {err && <Loading/> }
+            {err && <Loading />}
             <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
                 {
                     currentItems.map((item) => (
@@ -102,16 +100,17 @@ const Menu = () => {
                     ))
                 }
             </div>
-            <div className="flex justify-center my-8" dir="ltr">
-                {
-                Array.from({length:Math.ceil(filteredItems.length / itemsPerPage)})
-                .map((_,index)=>(
-                  <button className={`mx-1 px-3 py-1 rounded-full ${currentPage === index+1 ? "bg-orange text-white" : "bg-gray-200"}`} key={index+1} onClick={()=>paginate(index+1)}>
-                   {index+1}
-                  </button>
-                ))
-                
-                }
+            <div className="flex justify-center flex-wrap my-8" dir="ltr">
+                {Array.from({ length: Math.ceil(filteredItems.length / itemsPerPage) }).map((_, index) => (
+                    <button
+                        key={index + 1}
+                        onClick={() => paginate(index + 1)}
+                        className={`m-1 px-3 py-1 rounded-full ${currentPage === index + 1 ? "bg-orange text-white" : "bg-gray-200"
+                            }`}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
             </div>
         </div>
     );

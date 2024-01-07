@@ -1,8 +1,11 @@
 import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
 
 const AddMenu = () => {
+
+    const [loadingBtn, setLoadingBtn] = useState(false)
 
     const {
         register,
@@ -15,6 +18,7 @@ const AddMenu = () => {
     const imgApi = `https://api.imgbb.com/1/upload?expiration=600&key=${imgKey}`
 
     const onSubmit = async (data) => {
+        setLoadingBtn(true)
         const imageFile = { image: data.image[0] }
         const res = await axios.post(imgApi, imageFile , {
             
@@ -34,6 +38,7 @@ const AddMenu = () => {
             }
             console.log(menuItem)
             axios.post('http://localhost:6001/menu', menuItem).then((data) => {
+                setLoadingBtn(true)
                 reset()
                 Swal.fire({
                     position: "center",
@@ -66,6 +71,7 @@ const AddMenu = () => {
                                 <span className="label-text">دسته بندی </span>
                             </label>
                             <select defaultValue="انتخاب دسته بندی" {...register("category", { required: true })} className="select select-bordered w-full max-w-xs">
+                                <option selected disabled value="">دسته بندی</option>
                                 <option value="popular">پرطرفدار</option>
                                 <option value="rogen">روگن</option>
                                 <option value="italian">ایتالیایی</option>
@@ -92,7 +98,10 @@ const AddMenu = () => {
                         </label>
                         <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
                     </div>
-                    <button className='btn text-white bg-orange px-6 my-6'>اضافه کردن</button>
+                    {
+                        loadingBtn ? <loadingBtn /> :
+                        <button className='btn text-white bg-orange px-6 my-6'>اضافه کردن</button>
+                    }
                 </form>
             </div>
         </div>

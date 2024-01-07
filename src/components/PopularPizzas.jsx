@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Swal from 'sweetalert2'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -27,12 +26,7 @@ const PopularPizzas = () => {
                 setErr(false)
             }
             catch (err) {
-                Swal.fire({
-                    icon: "error",
-                    title: "از vpn استفاده کنید",
-                    confirmButtonText: "باشه",
-                    confirmButtonColor: "#FFBE00",
-                });
+               
                 err & setErr(true)
             }
 

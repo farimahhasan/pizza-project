@@ -90,16 +90,13 @@ const Card = ({ data }) => {
                 <FaHeart className="h-5 w-5 cursor-pointer" />
             </div>
             <figure>
-                <Link to={`/menu/${_id}`}>
-                    <img className="hover:scale-105 transition-all duration-200 md:h-72" src={image} alt={name} />
-                </Link>
+                    <img className="hover:scale-105 transition-all duration-200 md:h-72" src={image} alt={name} /> 
             </figure>
             <div className="card-body">
                 <h2 className="card-title">
-                    <Link to={`/menu/${_id}`}>
                         {name}
-                    </Link>
                 </h2>
+                <p>{recipe}</p>
                 <div className="card-actions justify-between items-center mt-2">
                     <h5 className="font-semibold">{price.toLocaleString()} تومان</h5>
                     <button className="btn bg-orange text-white" onClick={() => addToCartHandler(data)}>افزودن به سبد خرید</button>
